@@ -1,0 +1,64 @@
+name: Maven Build
+
+on:
+  push:
+  schedule:
+    - cron: '0 15 * * *' # daily at 3pm
+
+jobs:
+  build-sample-projects:
+    strategy:
+      fail-fast: false
+      matrix:
+        projects: [ 'spring-boot-example' ]
+    runs-on: ubuntu-24.04
+    name: ${{ matrix.projects }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: 21
+          distribution: 'adopt'
+          java-package: 'jdk'
+          cache: 'maven'
+
+      - name: Build the project
+        working-directory: ${{ matrix.projects }}
+        run: ./mvnw -B verify
+
+      - name: Log test output on failure
+        if: failure() || cancelled()
+        run: find . -type f -path "*test-reports/*-output.txt" -exec tail -n +1 {} +
+
+  run-performance-tests:
+    runs-on: ubuntu-24.04
+    name: performance-tests
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: 21
+          distribution: 'adopt'
+          java-package: 'jdk'
+          cache: 'maven'
+
+      - name: Start the infrastructure
+        run: docker compose --file spring-boot-example/docker-compose.yml up -d
+
+      - name: Run Gatling performance tests
+        working-directory: spring-boot-example
+        run: |
+          ./mvnw -B spring-boot:run &
+          ./mvnw -B gatling:test
+
+      - name: Run ApacheBench performance tests
+        working-directory: spring-boot-example
+        run: |
+          ./mvnw -B spring-boot:run &
+          ab -p src/test/resources/apachebench/create-customer-request.json -T application/json -c 10 -n 1000 http://localhost:8080/api/customers
