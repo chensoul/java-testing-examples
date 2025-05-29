@@ -27,7 +27,7 @@ jobs:
 
       - name: Build the project
         working-directory: ${{ matrix.projects }}
-        run: ./mvnw -B verify
+        run: ./mvnw -ntp -B verify
 
       - name: Log test output on failure
         if: failure() || cancelled()
@@ -54,11 +54,11 @@ jobs:
       - name: Run Gatling performance tests
         working-directory: spring-boot-example
         run: |
-          ./mvnw -B spring-boot:run &
-          ./mvnw -B gatling:test
+          ./mvnw -ntp -B spring-boot:run &
+          ./mvnw -ntp -B gatling:test
 
       - name: Run ApacheBench performance tests
         working-directory: spring-boot-example
         run: |
-          ./mvnw -B spring-boot:run &
+          ./mvnw -ntp -B spring-boot:run &
           ab -p src/test/resources/apachebench/create-customer-request.json -T application/json -c 10 -n 1000 http://localhost:8080/api/customers
