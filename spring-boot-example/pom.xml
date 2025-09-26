@@ -31,7 +31,7 @@
     <selenide.version>7.7.0</selenide.version>
     <selenium.version>4.29.0</selenium.version>
     <awaitility.version>4.3.0</awaitility.version>
-    <archunit.version>1.4.0</archunit.version>
+    <archunit.version>1.4.1</archunit.version>
     <rest-assured.version>5.5.0</rest-assured.version>
     <greenmail.version>2.1.2</greenmail.version>
     <groovy.version>4.0.24</groovy.version>
