@@ -18,7 +18,7 @@ class BasicContainerIT {
 
   @Container
   static GenericContainer<?> keycloak =
-    new GenericContainer<>(DockerImageName.parse("quay.io/keycloak/keycloak:18.0.2"))
+    new GenericContainer<>(DockerImageName.parse("quay.io/keycloak/keycloak:26.3.5"))
       .withCommand("start-dev --http-relative-path /auth")
       .waitingFor(Wait.forHttp("/auth").forStatusCode(200).withStartupTimeout(Duration.ofSeconds(90)))
       .withExposedPorts(8080)
