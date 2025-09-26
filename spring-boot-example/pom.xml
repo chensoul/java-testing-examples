@@ -38,7 +38,7 @@
     <gatling.version>3.13.1</gatling.version>
     <gatling-maven-plugin.version>4.12.2</gatling-maven-plugin.version>
     <instancio.version>5.3.0</instancio.version>
-    <jgiven-maven-plugin.version>2.0.1</jgiven-maven-plugin.version>
+    <jgiven-maven-plugin.version>2.0.2</jgiven-maven-plugin.version>
     <jfrunit.version>1.0.0.Alpha2</jfrunit.version>
     <jmh-core.version>1.37</jmh-core.version>
     <pitest.version>1.18.0</pitest.version>
