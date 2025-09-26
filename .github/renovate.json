@@ -1,13 +1,14 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:recommended"
   ],
   "ignorePaths": [],
-  "regexManagers": [
+  "customManagers": [
     {
-      "fileMatch": [
-        "spring-boot-example/src/test/java/.+\\.java$"
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/spring-boot-example/src/test/java/.+\\.java$/"
       ],
       "matchStrings": [
         "\"(?<depName>.*?):(?<currentValue>.*?)\""
