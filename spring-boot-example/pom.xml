@@ -41,7 +41,7 @@
     <jgiven-maven-plugin.version>2.0.3</jgiven-maven-plugin.version>
     <jfrunit.version>1.0.0.Alpha2</jfrunit.version>
     <jmh-core.version>1.37</jmh-core.version>
-    <pitest.version>1.20.5</pitest.version>
+    <pitest.version>1.20.6</pitest.version>
   </properties>
 
   <dependencyManagement>
