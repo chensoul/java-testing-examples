@@ -35,7 +35,7 @@
     <rest-assured.version>5.5.0</rest-assured.version>
     <greenmail.version>2.1.7</greenmail.version>
     <groovy.version>4.0.24</groovy.version>
-    <gatling.version>3.14.6</gatling.version>
+    <gatling.version>3.14.7</gatling.version>
     <gatling-maven-plugin.version>4.20.8</gatling-maven-plugin.version>
     <instancio.version>5.5.1</instancio.version>
     <jgiven-maven-plugin.version>2.0.3</jgiven-maven-plugin.version>
