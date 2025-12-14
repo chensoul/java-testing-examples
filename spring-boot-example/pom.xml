@@ -33,7 +33,7 @@
     <awaitility.version>4.3.0</awaitility.version>
     <archunit.version>1.4.1</archunit.version>
     <rest-assured.version>5.5.0</rest-assured.version>
-    <greenmail.version>2.1.7</greenmail.version>
+    <greenmail.version>2.1.8</greenmail.version>
     <groovy.version>4.0.24</groovy.version>
     <gatling.version>3.14.9</gatling.version>
     <gatling-maven-plugin.version>4.20.13</gatling-maven-plugin.version>
