@@ -6,7 +6,7 @@ services:
       - POSTGRES_PASSWORD=secret
 
   keycloak:
-    image: quay.io/keycloak/keycloak:26.5.0
+    image: quay.io/keycloak/keycloak:26.5.1
     command: [ 'start-dev --http-relative-path /auth' ]
     environment:
       - KEYCLOAK_ADMIN=keycloak
